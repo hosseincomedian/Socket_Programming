@@ -14,17 +14,18 @@ while True:
 
     data = input('2: ')
     s.send(data.encode())
-    if data =='end':
-        break
+
     
     
     data = input('3: ')
     s.send(data.encode())
-    if data =='end':
-        break
+
     
     
     data2 = s.recv(1024)
-    print(data2.decode())
+    data2 = data2.decode()
+    print(data2)
+    if data2 == 'Server Is Busy':
+        break
 
 s.close()

@@ -5,15 +5,11 @@ from _thread import *
 
 def multi_threaded_client(connection,count):
     # print('count darooni while:',count)
-    if len(count) >= 3:
+    if len(count) >= 5:
         
-        data = connection.recv(2048)
-        data = connection.recv(2048)
-        data = connection.recv(2048)
         data = 'Server Is Busy'
         connection.send(data.encode())
-        
-
+        count.pop()
             
     else:
         while True:
@@ -39,7 +35,7 @@ my_ip = '127.0.0.1'
 my_port = 12345 
 
 count = []
-s = socket(AF_INET,SOCK_STREAM) # i.  socket.AF_INET6 "IPV6"  
+s = socket(AF_INET,SOCK_STREAM) # i.  AF_INET6 "IPV6"  
 s.bind((my_ip,my_port))
 
 s.listen(1)
@@ -70,8 +66,8 @@ while True:
     #     readable, empty, empt = select.select(servers, [], [])
     #     ready_server = readable[0]
     #     Client, addr = ready_server.accept()   
-        #  count.append(Client)
-        #  start_new_thread(multi_threaded_client, (Client,count, ))
+    #  count.append(Client)
+    #  start_new_thread(multi_threaded_client, (Client,count, ))
     
 
 
