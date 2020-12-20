@@ -1,6 +1,7 @@
 from socket import *
 
 
+
 des_ip = '127.0.0.1'
 des_port = 12345 
 s = socket(AF_INET,SOCK_STREAM) #AF_INET : IPV4 , SOCK_STREAM:TCP+++
