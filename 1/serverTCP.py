@@ -42,6 +42,8 @@ s.listen(1)
 while True:
     Client, address = s.accept()
     count.append(Client)
+    print('client:  ', Client)
+    print('addres:  ',address)
     #iii . Client.settimeout(10)
     start_new_thread(multi_threaded_client, (Client,count, ))
 
